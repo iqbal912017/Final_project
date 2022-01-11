@@ -1,0 +1,72 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include "kasa.h"
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+using namespace std;
+string type[100];
+float sonhesap;
+void zara::ekran() {
+	cout<<"===========================\n";
+    cout<<"Program C++ uygun kasiyer\n";
+    cout<<"===========================\n\n";
+	cout<<" marka adi: "<< marka<<endl ;
+    cout<<"beden : "<<beden<<endl<<endl;
+    cout<<"kac tane urun almak istedi :";
+	cin>> toplamalma;
+	cout<<endl; 
+	
+}
+
+void zara::proses(){
+	
+	
+	for (int i=0;i<toplamalma;i++){
+        cout<<i+1<<". urun\n";
+    	cout<<"type adi (kiyafet, ceket, VB) : ";
+        cin>>type[i];
+        cout<<"kac tane almak istedi : ";
+        cin>>toplam[i]; //input jumlah barang yang di beli
+
+        cout<<"fiyat tanesi : ";
+        cin>>fiyat[i]; //input harga perbarang
+		
+        hesap[i] = toplam[i]*fiyat[i]; //jumlah harga total barang
+        sonhesap += hesap[i]; // menjumlahkan seluruh total barang
+        cout<<endl;
+    }
+}
+void zara::fis(){
+	cout<<endl;
+	cout<<"\n===============";
+    cout<<"\nFIS (receipt)";
+    cout<<"\n==============="<<endl;
+
+    cout<<"\nNo Type  tane fiyat toplam\n";
+    for (int i=0; i<toplamalma; i++ ){
+        cout<<i+1<<setw(8)<<type[i]<<setw(10)<<toplam[i]<<setw(12)<<fiyat[i]<<setw(12)<<hesap[i]<<endl;
+    }
+	
+}
+void zara::diskon(){
+	
+	if(sonhesap>=100){
+        indirim=0.06*sonhesap;
+    }else if(sonhesap>= 50){
+        indirim=0.04*sonhesap;
+    }else if(sonhesap>= 25){
+        indirim=0.02*sonhesap;
+    }else{
+        indirim=0;
+    }
+}
+void zara::odemeyap(){
+	cout<<"Toplam : "<<sonhesap<<" TL"<<endl;
+    cout<<"Indirim : "<<indirim<<" TL"<<endl;
+    cout<<"Total Bayar : "<<sonhesap - indirim<<" TL"<<endl;
+    cout<<"Para :  (TL)";
+    cin>>odeme;
+    cout<<"iade : "<<(odeme-(sonhesap-indirim))<<" TL"<<endl;
+    
+}

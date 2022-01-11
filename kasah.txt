@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+class kiyafet {
+	
+	public :
+		string beden;
+    	string marka;
+	
+				
+};
+
+class zara : public kiyafet {
+	public :
+		
+		int odeme, indirim, toplamalma, toplam[100], hesap[50], fiyat[100];
+		
+		
+		
+		
+		void setmarka(string a){
+			marka = a;
+		}
+		
+		void setbeden(string b){
+			beden = b;
+		}
+		
+		void ekran();
+		void proses();
+		void fis();
+		void diskon();
+		void odemeyap();
+	
+};
+
